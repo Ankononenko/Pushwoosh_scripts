@@ -19,4 +19,4 @@ for file in $search_pattern; do
 	cp $file $(pwd)/backup/${datetime}_backup
 done
 
-echo "export_segment files were copied to the backup folder"
+echo "export_segment.csv.zip files were copied to the backup folder"

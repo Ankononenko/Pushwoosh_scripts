@@ -28,7 +28,7 @@ chmod +x "export_requests_${datetime}.sh"
 
 # Process the segments
 chmod +x "process_requests_${datetime}.sh"
-./"process_requests_${datetime}.sh" 2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
+./"process_requests_${datetime}.sh" "$key"  "$datetime"  2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
 
 # Save the .csv.zip to a back up folder
