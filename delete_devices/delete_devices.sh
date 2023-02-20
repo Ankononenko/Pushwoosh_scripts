@@ -14,9 +14,11 @@ if [ ! -d "$(pwd)/logs" ]; then
 fi
 
 # Using an API request write the keys to a file
+chmod +x get_app_codes.sh
 ./get_app_codes.sh "$key" "$datetime"  2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
 # Parse the file and generate the export requests
+chmod +x generate_export_requests.sh
 ./generate_export_requests.sh "$key" "$datetime"  2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
 # Export the segments
@@ -24,6 +26,7 @@ chmod +x "export_requests_${datetime}.sh"
 ./"export_requests_${datetime}.sh" 2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
 # Parse the file and generate the process requests
+chmod +x generate_process_requests.sh
 ./generate_process_requests.sh "$key" "$datetime"  2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
 # Process the segments
