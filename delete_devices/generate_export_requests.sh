@@ -10,7 +10,7 @@ key=$1
 # Loop through app codes and execute export-segment command
 for code in $app_codes
 do
-    cmd="./export-segment --token ${key} 'AT(\"${code}\",\"Last Application Open\", GTE, \"30 days ago\")'"
+    cmd="./export-segment --token ${key} 'AT(\"${code}\",\"Last Application Open\", GTE, \"180 days ago\")'"
     echo $cmd >> export_requests_${datetime}.sh
 done
 echo "The export requests were written to the export_requests_${datetime}.sh file"
