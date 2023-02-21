@@ -33,7 +33,6 @@ chmod +x generate_process_requests.sh
 chmod +x "process_requests_${datetime}.sh"
 ./"process_requests_${datetime}.sh" "$key"  "$datetime"  2>&1 | ts '[%Y-%m-%d %H:%M:%S]' | tee -a "$(pwd)/logs/logfile_${datetime}.log"
 
-
 # Save the .csv.zip to a back up folder
 chmod +x backup.sh
 ./backup.sh "$datetime"
