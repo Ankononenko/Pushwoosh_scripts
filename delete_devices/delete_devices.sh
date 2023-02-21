@@ -35,7 +35,9 @@ chmod +x "process_requests_${datetime}.sh"
 
 
 # Save the .csv.zip to a back up folder
+chmod +x backup.sh
 ./backup.sh "$datetime"
 
 # Delete the temporary files
+chmod +x clean_temp_files.sh
 ./clean_temp_files.sh
