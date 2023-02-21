@@ -20,4 +20,4 @@ for file in $search_pattern; do
   echo "./process-segment --token ${key} -a deleteDevice --app ${app_code} ${file}" >> process_requests_${datetime}.sh
 done
 
-echo "File with the list of process requets was generated: process_requets_${datetime}.sh"
+echo "File with the list of process requests was generated: process_requets_${datetime}.sh"
