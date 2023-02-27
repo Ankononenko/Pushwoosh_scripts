@@ -3,19 +3,20 @@ import re
 import time
 import requests
 
+package_name = "com.example.app"
 application = "YOUR_HWID_GOES_HERE"
 apk_name = "YOUR_APK_NAME_GOES_HERE.apk"
 
 url = "API_REQUEST_URL"
 
-num_loops = 1
+num_loops = 3
 
 for i in range(num_loops):
-    # Install APK
+    # Install the APK
     os.system('adb install /storage/emulated/0/Download/{}'.format(apk_name))
 
-    # Launch app
-    os.system('adb shell monkey -p com.example.app 1')
+    # Launch the app
+    os.system('adb shell monkey -p {} 1'.format(package_name))
 
     # Wait for 2 minutes
     time.sleep(120)
@@ -35,7 +36,7 @@ for i in range(num_loops):
     }
     }
 
-    # Send API request and log response
+    # Send an API request and log the response
     response = requests.post(url, json=payload)
     with open("/storage/emulated/0/api_log.txt", "a") as f:
         f.write("Request:\n")
@@ -49,7 +50,7 @@ for i in range(num_loops):
     time.sleep(30)
 
     # Uninstall app
-    os.system('adb uninstall com.example.app')
+    os.system('adb uninstall {}'.format(package_name))
 
-    # Clear logs
+    # Clear logs so we can parse a new HWID
     os.system('adb logcat -c')
