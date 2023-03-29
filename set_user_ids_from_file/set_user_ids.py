@@ -3,9 +3,9 @@ import json
 import csv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-ENDPOINT = "https://cp.pushwoosh.com/json/1.3"
-API_KEY = "uQLLQR33nHOtGBbYIa25KmybcZZkliPWHmR1fjQ2zVU0FXZyfcChPmodNkB64XL8WcyNUUG5ix0c6DZRHM6n"
-APP_CODE = "DB090-F69F7"
+ENDPOINT = "https://ENTRYPOINT"
+API_KEY = "KEY"
+APP_CODE = "APP_CODE"
 REGISTER_USER_URL = f"{ENDPOINT}/registerUser"
 
 session = requests.Session()
