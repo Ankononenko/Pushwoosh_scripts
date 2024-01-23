@@ -8,7 +8,7 @@ HEADERS = {"Content-Type": "application/json"}
 def send_request(hwid):
     payload = {
         "request": {
-            // Replace the app_code
+            # Replace the app_code
             "application": "app_code",
             "email": hwid
         }
@@ -25,5 +25,5 @@ def process_csv(file_path):
         futures = [executor.submit(send_request, hwid) for hwid in hwids]
         for future in futures:
             print(future.result())
-// Replace the path to the export-segment
+# Replace the path to the export-segment
 process_csv('segment_export_file.csv')
